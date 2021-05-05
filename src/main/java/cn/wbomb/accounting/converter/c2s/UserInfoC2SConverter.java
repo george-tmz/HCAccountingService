@@ -15,7 +15,6 @@ public class UserInfoC2SConverter extends Converter<UserInfo,
         return cn.wbomb.accounting.model.service.UserInfo.builder()
                 .id(userInfo.getId())
                 .username(userInfo.getUsername())
-                .password(userInfo.getPassword())
                 .build();
     }
 
@@ -24,7 +23,6 @@ public class UserInfoC2SConverter extends Converter<UserInfo,
         return UserInfo.builder()
                 .id(userInfo.getId())
                 .username(userInfo.getUsername())
-                .password(userInfo.getPassword())
                 .build();
     }
 }

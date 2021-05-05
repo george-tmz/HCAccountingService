@@ -11,11 +11,19 @@ public class UserInfoP2CConverter extends Converter<UserInfo, cn.wbomb.accountin
 
     @Override
     protected cn.wbomb.accounting.model.common.UserInfo doForward(UserInfo userInfo) {
-        return cn.wbomb.accounting.model.common.UserInfo.builder().build();
+        return cn.wbomb.accounting.model.common.UserInfo.builder()
+                .id(userInfo.getId())
+                .username(userInfo.getPassword())
+                .password(userInfo.getPassword())
+                .build();
     }
 
     @Override
     protected UserInfo doBackward(cn.wbomb.accounting.model.common.UserInfo userInfo) {
-        return UserInfo.builder().build();
+        return UserInfo.builder()
+                .id(userInfo.getId())
+                .username(userInfo.getPassword())
+                .password(userInfo.getPassword())
+                .build();
     }
 }
