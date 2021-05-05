@@ -13,7 +13,7 @@ public class UserInfoP2CConverter extends Converter<UserInfo, cn.wbomb.accountin
     protected cn.wbomb.accounting.model.common.UserInfo doForward(UserInfo userInfo) {
         return cn.wbomb.accounting.model.common.UserInfo.builder()
                 .id(userInfo.getId())
-                .username(userInfo.getPassword())
+                .username(userInfo.getUsername())
                 .password(userInfo.getPassword())
                 .build();
     }
@@ -22,7 +22,7 @@ public class UserInfoP2CConverter extends Converter<UserInfo, cn.wbomb.accountin
     protected UserInfo doBackward(cn.wbomb.accounting.model.common.UserInfo userInfo) {
         return UserInfo.builder()
                 .id(userInfo.getId())
-                .username(userInfo.getPassword())
+                .username(userInfo.getUsername())
                 .password(userInfo.getPassword())
                 .build();
     }
