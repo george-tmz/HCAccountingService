@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @NoArgsConstructor
-public class UserInfoConverter extends Converter<UserInfo,
+public class UserInfoC2SConverter extends Converter<UserInfo,
         cn.wbomb.accounting.model.service.UserInfo> {
 
     @Override
