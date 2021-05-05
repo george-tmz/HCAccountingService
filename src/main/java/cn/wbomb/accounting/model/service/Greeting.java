@@ -1,4 +1,4 @@
-package cn.wbomb.accounting.model;
+package cn.wbomb.accounting.model.service;
 
 public class Greeting {
     private final long id;
