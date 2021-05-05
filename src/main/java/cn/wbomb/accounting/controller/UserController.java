@@ -33,19 +33,9 @@ public class UserController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserInfoByUserId(@PathVariable("id") Long userId) {
+    public ResponseEntity<UserInfo> getUserInfoByUserId(@PathVariable("id") Long userId) {
         log.debug("Get user info by user id {}", userId);
-        try {
-            val userInfo = userInfoManager.getUserInfoByUserId(userId);
-            return ResponseEntity.ok(userInfoC2SConverter.convert(userInfo));
-        } catch (ResourceNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(ErrorResponse.builder()
-                            .code("USER_NOT_FOUND")
-                            .errorType(ServiceException.ErrorType.Client)
-                            .message(e.getMessage())
-                            .statusCode(HttpStatus.NOT_FOUND.value())
-                            .build());
-        }
+        val userInfo = userInfoManager.getUserInfoByUserId(userId);
+        return ResponseEntity.ok(userInfoC2SConverter.convert(userInfo));
     }
 }
