@@ -1,15 +1,11 @@
 package cn.wbomb.accounting.controller;
 
 import cn.wbomb.accounting.converter.c2s.UserInfoC2SConverter;
-import cn.wbomb.accounting.exception.ErrorResponse;
-import cn.wbomb.accounting.exception.ResourceNotFoundException;
-import cn.wbomb.accounting.exception.ServiceException;
 import cn.wbomb.accounting.manager.UserInfoManager;
 import cn.wbomb.accounting.model.service.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
