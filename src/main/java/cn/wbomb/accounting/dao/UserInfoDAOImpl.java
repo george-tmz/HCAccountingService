@@ -5,6 +5,9 @@ import cn.wbomb.accounting.model.persistence.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+/**
+ * @author George
+ */
 @Repository
 public class UserInfoDAOImpl implements UserInfoDAO {
     private final UserInfoMapper userInfoMapper;
