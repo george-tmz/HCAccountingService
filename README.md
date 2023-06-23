@@ -1,4 +1,4 @@
-# HCAccountingService
+# AccountingService 开发过程记录
 
 Spring boot 练习项目--计算器
 
@@ -103,3 +103,17 @@ http://localhost:8000/v1/users/1
 
 - Client side error：4XX
 - Service side error： 5XX
+
+### 单元测试
+测试的名称应包含三部分
+- 要测试的方法名称
+- 测试方案
+- 调用方案的预期行为
+
+#### AAA Pattern
+Arrange-act-assert 单元测试的常见模式
+- Arrange：安排好所有先要条件和输入，根据需要进行创建和设置
+- Act：对要测试的对象或者方法进行调用
+- Assert：断言结果是否按预期进行
+
+#### 编写单元测试
