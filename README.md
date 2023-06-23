@@ -9,6 +9,41 @@ Spring boot 练习项目--计算器
 - 编写代码
 - 添加相应配置
 
+## 项目代码结构与数据模型转换
+
+### 项目代码组织结构
+
+```text
+└── src
+    └── main
+        └── java
+            └── com.hardcore.accounting
+              └── config
+            	└── controller
+            	└── converter
+  	          └── manager
+  	          └── dao
+  	          └── external
+            	└── model
+            	└── exception
+```
+
+### 数据模型转换
+
+#### 阿里分层领域模型规约参考
+
+- DO（Data Object）：此对象与数据库表结构一一对应，通过 DAO 层向上传输数据源对象。
+- DTO（Data Transfer Object）：数据传输对象，Service 或 Manager 向外传输的对象。
+- BO（Business Object）：业务对象，由 Service 层输出的封装业务逻辑的对象。
+- AO（Application Object）：应用对象，在 Web 层与 Service 层之间抽象的复用对象模型，极为贴近展示层，复用度不高。
+- VO（View Object）：显示层对象，通常是 Web 向模板渲染引擎层传输的对象
+
+#### 简单的三层数据模型
+
+- persistence: 对应数据库表结构
+- common: 对应Manager层使用
+- service: 对应Controller层使用
+
 ## 数据库初始化SQL
 
 ```mysql
@@ -105,15 +140,25 @@ http://localhost:8000/v1/users/1
 - Service side error： 5XX
 
 ### 单元测试
+
 测试的名称应包含三部分
+
 - 要测试的方法名称
 - 测试方案
 - 调用方案的预期行为
 
 #### AAA Pattern
+
 Arrange-act-assert 单元测试的常见模式
+
 - Arrange：安排好所有先要条件和输入，根据需要进行创建和设置
 - Act：对要测试的对象或者方法进行调用
 - Assert：断言结果是否按预期进行
 
 #### 编写单元测试
+JUnit5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+https://junit.org/junit5/docs/current/user-guide/
+Mockito
+https://site.mockito.org/
+
+
