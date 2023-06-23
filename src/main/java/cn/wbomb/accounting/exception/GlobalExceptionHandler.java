@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(ResourceNotFoundException.class)
-    ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundException ex) {
+    @ExceptionHandler(ServiceException.class)
+    ResponseEntity<?> handleServiceException(ServiceException ex) {
         val errorResponse = ErrorResponse.builder()
-                .code("USER_NOT_FOUND")
-                .errorType(ServiceException.ErrorType.Client)
+                .statusCode(ex.getStatusCode())
                 .message(ex.getMessage())
-                .statusCode(HttpStatus.NOT_FOUND.value())
+                .code(ex.getErrorCode())
+                .errorType(ex.getErrorType())
                 .build();
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(errorResponse);
+        return ResponseEntity.status(ex.getStatusCode() != 0 ? ex.getStatusCode() : HttpStatus.INTERNAL_SERVER_ERROR.value()).body(errorResponse);
     }
 }
