@@ -1,9 +1,11 @@
 package cn.wbomb.accounting.controller;
 
 import cn.wbomb.accounting.converter.c2s.UserInfoC2SConverter;
+import cn.wbomb.accounting.exception.InvalidParameterException;
 import cn.wbomb.accounting.manager.UserInfoManager;
 import cn.wbomb.accounting.model.service.UserInfo;
 
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +42,11 @@ public class UserController {
      * @return User Information
      */
     @GetMapping("/{id}")
-    public ResponseEntity<UserInfo> getUserInfoByUserId(@PathVariable("id") Long userId) {
+    public ResponseEntity<UserInfo> getUserInfoByUserId(@PathVariable("id") @NonNull Long userId) {
         log.debug("Get user info by user id {}", userId);
+        if (userId <= 0L) {
+            throw new InvalidParameterException(String.format("The user id %s is invalid", userId));
+        }
         val userInfo = userInfoManager.getUserInfoByUserId(userId);
         return ResponseEntity.ok(userInfoC2SConverter.convert(userInfo));
     }

@@ -64,5 +64,6 @@ public class UserControllerTests {
                 .andExpect(status().is4xxClientError())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(content().string("{\"code\":\"USER_INFO_NOT_FOUND\",\"errorType\":\"Client\",\"message\":\"User -100 was not found\",\"statusCode\":404}"));
+        verify(userInfoManager).getUserInfoByUserId(anyLong());
     }
 }
