@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * This is userinfo controller.
+ *
  * @author George
  */
 @RestController
@@ -34,6 +35,7 @@ public class UserController {
 
     /**
      * Get user information by user id.
+     *
      * @param userId User data id
      * @return User Information
      */

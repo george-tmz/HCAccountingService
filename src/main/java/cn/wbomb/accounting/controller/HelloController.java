@@ -10,6 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Say hello controller.
+ *
  * @author George
  */
 @RestController
