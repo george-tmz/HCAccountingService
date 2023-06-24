@@ -179,3 +179,7 @@ https://site.mockito.org/
 ### Jcoco插件
 检测单元测试覆盖率
 
+### Spotbugs 插件
+
+### 配置 GitHub CI workflow
+

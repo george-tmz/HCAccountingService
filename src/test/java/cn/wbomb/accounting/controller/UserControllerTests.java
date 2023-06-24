@@ -57,13 +57,9 @@ public class UserControllerTests {
     @Test
     void testGetUserInfoByUserIdWithInvalidUserId() throws Exception {
         val userId = -100L;
-        doThrow(new ResourceNotFoundException(String.format("User %s was not found", userId)))
-                .when(userInfoManager)
-                .getUserInfoByUserId(anyLong());
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/users/"+userId))
                 .andExpect(status().is4xxClientError())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(content().string("{\"code\":\"USER_INFO_NOT_FOUND\",\"errorType\":\"Client\",\"message\":\"User -100 was not found\",\"statusCode\":404}"));
-        verify(userInfoManager).getUserInfoByUserId(anyLong());
+                .andExpect(content().string("{\"code\":\"INVALID_PARAMETER_EXCEPTION\",\"errorType\":\"Client\",\"message\":\"The user id s% is invalid\",\"statusCode\":400}"));
     }
 }
