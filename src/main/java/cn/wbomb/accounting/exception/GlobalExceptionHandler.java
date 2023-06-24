@@ -16,6 +16,8 @@ public class GlobalExceptionHandler {
                 .code(ex.getErrorCode())
                 .errorType(ex.getErrorType())
                 .build();
-        return ResponseEntity.status(ex.getStatusCode() != 0 ? ex.getStatusCode() : HttpStatus.INTERNAL_SERVER_ERROR.value()).body(errorResponse);
+        return ResponseEntity.status(
+                ex.getStatusCode() != 0 ? ex.getStatusCode() : HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .body(errorResponse);
     }
 }

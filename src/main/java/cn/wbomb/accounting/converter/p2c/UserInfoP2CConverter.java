@@ -1,6 +1,7 @@
 package cn.wbomb.accounting.converter.p2c;
 
 import cn.wbomb.accounting.model.persistence.UserInfo;
+
 import com.google.common.base.Converter;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;

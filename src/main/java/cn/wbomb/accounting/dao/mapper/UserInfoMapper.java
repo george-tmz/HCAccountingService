@@ -1,17 +1,19 @@
 package cn.wbomb.accounting.dao.mapper;
 
 import cn.wbomb.accounting.model.persistence.UserInfo;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 /**
+ * User information Mapper.
  * @author George
  */
 @Mapper
 public interface UserInfoMapper {
     /**
-     * Get user info by user id
+     * Get user info by user id.
      * @param id user id
      * @return UserInfo 对象
      */

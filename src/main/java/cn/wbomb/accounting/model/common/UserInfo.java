@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
+ * A user information for common.
  * @author George
  */
 @Data

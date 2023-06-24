@@ -1,6 +1,7 @@
 package cn.wbomb.accounting.converter.c2s;
 
 import cn.wbomb.accounting.model.common.UserInfo;
+
 import com.google.common.base.Converter;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;

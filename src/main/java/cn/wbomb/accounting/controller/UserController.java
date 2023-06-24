@@ -3,6 +3,7 @@ package cn.wbomb.accounting.controller;
 import cn.wbomb.accounting.converter.c2s.UserInfoC2SConverter;
 import cn.wbomb.accounting.manager.UserInfoManager;
 import cn.wbomb.accounting.model.service.UserInfo;
+
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * This is userinfo controller.
  * @author George
  */
 @RestController
@@ -30,7 +32,11 @@ public class UserController {
         this.userInfoC2SConverter = userInfoC2SConverter;
     }
 
-
+    /**
+     * Get user information by user id.
+     * @param userId User data id
+     * @return User Information
+     */
     @GetMapping("/{id}")
     public ResponseEntity<UserInfo> getUserInfoByUserId(@PathVariable("id") Long userId) {
         log.debug("Get user info by user id {}", userId);

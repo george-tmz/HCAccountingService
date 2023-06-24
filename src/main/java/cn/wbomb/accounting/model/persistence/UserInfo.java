@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 /**
+ * A user information for database.
  * @author George
  */
 @Data

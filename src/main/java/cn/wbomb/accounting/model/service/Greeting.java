@@ -3,6 +3,7 @@ package cn.wbomb.accounting.model.service;
 import lombok.Data;
 
 /**
+ * This is a model.
  * @author George
  */
 @Data

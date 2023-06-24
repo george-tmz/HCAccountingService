@@ -1,7 +1,7 @@
 package cn.wbomb.accounting.manager;
 
 import cn.wbomb.accounting.converter.p2c.UserInfoP2CConverter;
-import cn.wbomb.accounting.dao.UserInfoDAO;
+import cn.wbomb.accounting.dao.UserInfoDao;
 import cn.wbomb.accounting.exception.ResourceNotFoundException;
 import cn.wbomb.accounting.model.persistence.UserInfo;
 import lombok.val;
@@ -19,7 +19,7 @@ class UserInfoManagerTests {
     private UserInfoManager userInfoManager;
 
     @Mock
-    private UserInfoDAO userInfoDAO;
+    private UserInfoDao userInfoDAO;
 
     @BeforeEach
     void setup() {

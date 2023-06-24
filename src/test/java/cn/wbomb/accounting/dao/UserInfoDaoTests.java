@@ -16,15 +16,15 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-public class UserInfoDAOTests {
+public class UserInfoDaoTests {
 
     @Mock
     private UserInfoMapper userInfoMapper;
-    private UserInfoDAO userInfoDAO;
+    private UserInfoDao userInfoDAO;
 
     @BeforeEach
     public void setup() {
-        userInfoDAO = new UserInfoDAOImpl(userInfoMapper);
+        userInfoDAO = new UserInfoDaoImpl(userInfoMapper);
     }
 
     @Test
