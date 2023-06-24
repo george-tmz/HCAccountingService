@@ -169,3 +169,9 @@ https://site.mockito.org/
 
 @InjectMocks
 ```
+
+### 引入CheckStyle
+- pox.xml中添加依赖
+- 创建checkStyle配置文件。放在resource包中
+- idea安装CheckStyle插件
+- 设置插件使用的检测标准
