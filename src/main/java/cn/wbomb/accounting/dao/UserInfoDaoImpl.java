@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * User information dao implement class.
+ *
  * @author George
  */
 @Repository
@@ -25,7 +26,12 @@ public class UserInfoDaoImpl implements UserInfoDao {
     }
 
     @Override
-    public void createNewUser(String username, String password) {
+    public UserInfo getUserInfoByUsername(String username) {
+        return userInfoMapper.getUserInfoByUsername(username);
+    }
 
+    @Override
+    public void createNewUser(UserInfo userInfo) {
+        userInfoMapper.createNewUser(userInfo);
     }
 }

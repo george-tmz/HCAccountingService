@@ -10,5 +10,7 @@ import cn.wbomb.accounting.model.persistence.UserInfo;
 public interface UserInfoDao {
     UserInfo getUserInfoById(Long id);
 
-    void createNewUser(String username, String password);
+    UserInfo getUserInfoByUsername(String username);
+
+    void createNewUser(UserInfo userInfo);
 }
