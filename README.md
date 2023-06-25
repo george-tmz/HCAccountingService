@@ -156,12 +156,14 @@ Arrange-act-assert 单元测试的常见模式
 - Assert：断言结果是否按预期进行
 
 #### 编写单元测试
+
 JUnit5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
 https://junit.org/junit5/docs/current/user-guide/
 Mockito
 https://site.mockito.org/
 
 ##### annotation
+
 ```
 @Mock
 
@@ -171,12 +173,14 @@ https://site.mockito.org/
 ```
 
 ### 引入CheckStyle
+
 - pox.xml中添加依赖
 - 创建checkStyle配置文件。放在resource包中
 - idea安装CheckStyle插件
 - 设置插件使用的检测标准
 
 ### Jcoco插件
+
 检测单元测试覆盖率
 
 ### Spotbugs 插件
@@ -184,17 +188,71 @@ https://site.mockito.org/
 ### 配置 GitHub CI workflow
 
 ### 用户密码加密
+
 #### 基本加密
+
 MD5(password)
 HAS(password)
+
 #### 加盐加密 Salt
+
 随机生成一个盐```salt = UUID()```
 ```MD5(password + salt)``` -> database
+
 #### 多次迭代加盐加密
+
 Round 1: MD5(password + salt) -> s1
 
 Round 2: MD5(s1 + salt) -> s2
 
 Round 3: MD5(s2 + salt) -> s3
 
+### 使用Shrio实现登录功能
+
+官网 https://shiro.apache.org/
+
+#### 导入依赖
+
+```xml
+
+<dependency>
+    <groupId>org.apache.shiro</groupId>
+    <artifactId>shiro-spring</artifactId>
+    <version>1.4.1</version>
+</dependency>
+```
+
+#### 编写Shrio配置类
+
+- 定义Realm类
+- 定义SecurityManager
+
+#### 定义filter
+
+Shiro内置Filter，可以实现权限相关的拦截器
+
+常用Filter：
+
+anon： 无需认证登录可以访问
+
+authc：必须认证才可以访问
+
+user：如果使用rememberMe的功能可以直接访问
+
+perms：该资源必须得到资源权限才可以访问
+
+role：该资源必须得到角色权限才可以访问
+
+| 过滤器简       | 对应的java类                                                         |
+|------------|------------------------------------------------------------------|
+| anon	      | org.apache.shiro.web.filter.authc.AnonymousFilter                |
+| authc      | org.apache.shiro.web.filter.authc.FormAuthenticationFilter       |
+| authcBasic | org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter  |
+| perms      | org.apache.shiro.web.filter.authz.PermissionsAuthorizationFilter |
+| port       | org.apache.shiro.web.filter.authz.PortFilter                     |
+| rest       | org.apache.shiro.web.filter.authz.HttpMethodPermissionFilter     |
+| roles      | org.apache.shiro.web.filter.authz.RolesAuthorizationFilter       |
+| ssl        | org.apache.shiro.web.filter.authz.SslFilter                      |
+| user       | org.apache.shiro.web.filter.authc.UserFilter                     |
+| logout     | org.apache.shiro.web.filter.authc.LogoutFilter                   |
 
