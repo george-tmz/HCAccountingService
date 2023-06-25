@@ -40,12 +40,15 @@ public class ShrioConfig {
      */
     @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
-        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new CoustomShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
+        val filters = shiroFilterFactoryBean.getFilters();
+        filters.put("custom", new CustomHttpFilter());
+        filters.put("authc", new CustomFormAuthenticationFilter());
         LinkedHashMap<String, String> shiroFilterDefinitionMap = new LinkedHashMap<>();
-        //shiroFilterDefinitionMap.put("v1/greeting", "authc");
-        shiroFilterDefinitionMap.put("/v1/users", "anon");
+        shiroFilterDefinitionMap.put("/v1/greeting", "anon");
         shiroFilterDefinitionMap.put("/v1/session", "anon");
+        shiroFilterDefinitionMap.put("/v1/users/**::POST", "custom");
         shiroFilterDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(shiroFilterDefinitionMap);
         return shiroFilterFactoryBean;

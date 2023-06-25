@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
         val errorResponse = ErrorResponse.builder()
             .statusCode(STATUS_400)
             .message(ex.getMessage())
-            .code("INCORRECT_CREDENTIALS")
+            .code(BizErrorCode.INCORRECT_CREDENTIALS)
             .errorType(ServiceException.ErrorType.Client)
             .build();
         return ResponseEntity.status(

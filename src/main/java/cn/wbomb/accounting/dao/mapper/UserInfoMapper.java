@@ -4,6 +4,7 @@ import cn.wbomb.accounting.model.persistence.UserInfo;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -26,7 +27,8 @@ public interface UserInfoMapper {
     @Select("SELECT id,username,password,salt,create_time,update_time FROM hcas_user WHERE username = #{username}")
     UserInfo getUserInfoByUsername(@Param("username") String username);
 
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     @Insert("INSERT hcas_user (username, password, salt, create_time) "
         + "VALUES (#{username}, #{password}, #{salt}, #{createTime})")
-    void createNewUser(UserInfo userInfo);
+    int createNewUser(UserInfo userInfo);
 }

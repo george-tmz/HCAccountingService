@@ -3,6 +3,7 @@ package cn.wbomb.accounting.dao;
 import cn.wbomb.accounting.dao.mapper.UserInfoMapper;
 import cn.wbomb.accounting.model.persistence.UserInfo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Repository;
  * @author George
  */
 @Repository
+@Slf4j
 public class UserInfoDaoImpl implements UserInfoDao {
     private final UserInfoMapper userInfoMapper;
 
@@ -32,6 +34,7 @@ public class UserInfoDaoImpl implements UserInfoDao {
 
     @Override
     public void createNewUser(UserInfo userInfo) {
-        userInfoMapper.createNewUser(userInfo);
+        int row = userInfoMapper.createNewUser(userInfo);
+        log.info("Result: {}, user information: {}", row, userInfo);
     }
 }

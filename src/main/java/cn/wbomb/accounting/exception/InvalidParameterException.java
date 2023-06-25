@@ -12,7 +12,7 @@ public class InvalidParameterException extends ServiceException {
      */
     public InvalidParameterException(String message) {
         super(message);
-        this.setErrorCode("INVALID_PARAMETER_EXCEPTION");
+        this.setErrorCode(BizErrorCode.INVALID_PARAMETER_EXCEPTION);
         this.setStatusCode(HttpStatus.BAD_REQUEST.value());
         this.setErrorType(ErrorType.Client);
     }
