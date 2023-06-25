@@ -183,3 +183,18 @@ https://site.mockito.org/
 
 ### 配置 GitHub CI workflow
 
+### 用户密码加密
+#### 基本加密
+MD5(password)
+HAS(password)
+#### 加盐加密 Salt
+随机生成一个盐```salt = UUID()```
+```MD5(password + salt)``` -> database
+#### 多次迭代加盐加密
+Round 1: MD5(password + salt) -> s1
+
+Round 2: MD5(s1 + salt) -> s2
+
+Round 3: MD5(s2 + salt) -> s3
+
+
